@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    namespace 'com.example.padcbuildconfig'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.padcbuildconfig"
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    flavorDimensions "food-delivery-app-flavor"
+
+    productFlavors {
+        //KEY
+        def ENDPOINT_FIELD = "ENDPOINT"
+        def APP_NAME_FIELD = "app_name"
+
+        //VALUE
+        def ENDPOINT_FOOD_PANDA = "\"https://c37ca632-d390-4a3a-9c7c-5d319297678c.mock.pstmn.io\""
+        def ENDPOINT_GRAB = "\"https://68449d31-9e70-4651-af52-a4486d37305b.mock.pstmn.io\""
+
+        def APP_NAME_FOOD_PANDA = "Food Panda"
+        def APP_NAME_GRAB = "Grab"
+
+        foodPanda {
+            applicationIdSuffix ".foodpanda"
+            buildConfigField "String", ENDPOINT_FIELD, ENDPOINT_FOOD_PANDA
+            resValue "string", APP_NAME_FIELD, APP_NAME_FOOD_PANDA
+        }
+
+        grab {
+            applicationIdSuffix ".grab"
+            buildConfigField "String", ENDPOINT_FIELD, ENDPOINT_GRAB
+            resValue "string", APP_NAME_FIELD, APP_NAME_GRAB
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(path: ":shared")
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+}
