@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "777895902191",
+    "project_id": "padc-build-config-d27ba",
+    "storage_bucket": "padc-build-config-d27ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777895902191:android:f30e2d1c2ea54bc604541a",
+        "android_client_info": {
+          "package_name": "com.example.rider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777895902191-jcmbi96ekhnpjk87uasp9foa6drt1u3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEv_iea0LFHGWKwU-dg0q1tebKdoNICSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777895902191-jcmbi96ekhnpjk87uasp9foa6drt1u3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
